@@ -1,3 +1,4 @@
+#!/bin/bash
 phyloDir=$1
 resDir=$2
 samples=${ls resDir}
