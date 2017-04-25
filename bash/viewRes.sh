@@ -1,7 +1,7 @@
 #!/bin/bash
 phyloDir=$1
 resDir=$2
-samples=${ls resDir}
+samples=$(ls resDir)
 for i in $samples; do
 	source jsonRes.sh $resDir $i $phyloDir
 	cp -r $resDir/$i/$i $phyloDir/witness/data/
