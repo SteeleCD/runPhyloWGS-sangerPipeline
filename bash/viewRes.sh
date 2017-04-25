@@ -1,14 +1,15 @@
 #!/bin/bash
-phyloDir=$1
-resDir=$2
-samples=$(ls $resDir)
+#phyloDir=$1
+#resDir=$2
+samples=$(ls $2)
 for i in $samples; do
-	source jsonRes.sh $resDir/$i $i $phyloDir
-	cp -r $resDir/$i/$i $phyloDir/witness/data/
-	gunzip $phyloDir/witness/data/*/*.gz
+	source jsonRes.sh $2/$i $i $1
+	cp -r $2/$i/$i $1/witness/data/
+	gunzip $1/witness/data/$i/*.gz
 done
-python2 $phyloDir/witness/index_data.py
-python2 -m $phyloDir/witness/SimpleHTTPServer
+cd $1/witness
+python2 index_data.py
+python2 -m SimpleHTTPServer
 
 # http://127.0.0.1:8000
 
