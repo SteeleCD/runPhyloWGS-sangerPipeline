@@ -10,4 +10,5 @@ done
 python2 $phyloDir/witness/index_data.py
 python2 -m $phyloDir/witness/SimpleHTTPServer
 
+# http://127.0.0.1:8000
 
