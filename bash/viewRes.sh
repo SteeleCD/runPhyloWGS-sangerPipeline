@@ -3,7 +3,7 @@ phyloDir=$1
 resDir=$2
 samples=$(ls $resDir)
 for i in $samples; do
-	source jsonRes.sh $resDir $i $phyloDir
+	source jsonRes.sh $resDir/$i $i $phyloDir
 	cp -r $resDir/$i/$i $phyloDir/witness/data/
 	gunzip $phyloDir/witness/data/*/*.gz
 done
