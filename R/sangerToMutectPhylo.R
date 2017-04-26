@@ -85,4 +85,4 @@ keepIndex = which(is.na(CLPM)|CLPM==0)
 data = data[keepIndex,]
 # convert
 newFormat = convertSangerMutect(data)
-write.table(newFormat,file=paste0(args[3],"/",sample),quote=FALSE,row.names=FALSE)
+write.table(newFormat,file=paste0(args[3],"/",sample,".vcf"),quote=FALSE,row.names=FALSE)

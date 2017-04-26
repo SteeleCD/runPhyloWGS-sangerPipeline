@@ -1,5 +1,4 @@
 lustreDir=/lustre/scratch117/casm/team154/cs32
-Rdir=/nfs/users/nfs_c/cs32/Rscripts 
 phyloDir=/nfs/users/nfs_c/cs32/software/phylowgs
 vcfDir=/lustre/scratch117/casm/team154/cs32/output/vcfs
 bbDir=/lustre/scratch117/casm/team154/cs32/output/BB
@@ -13,7 +12,10 @@ mkdir $outDir/$sample
 cd $outDir/$sample
 
 # convert sanger vcf to mutect vcf
-/software/R-3.3.2/bin/Rscript --vanilla $Rdir/sangerToMutectPhylo.R "$sample"a $bulkVcf $vcfDir
+/software/R-3.3.2/bin/Rscript --vanilla ../R/sangerToMutectPhylo.R "$sample"a $bulkVcf $vcfDir
+
+# add vcf headers
+cat ../misc/vcfHeads.txt $vcfDir/"$sample"a.vcf > $vcfDir/"$sample"a.vcf
 
 # get purity
 contam=$(grep $sample $purityFile | awk -F "," '{print $2}')

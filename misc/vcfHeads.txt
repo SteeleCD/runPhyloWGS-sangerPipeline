@@ -1,0 +1,6 @@
+##fileformat=VCFv4.1
+##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP Membership">
+##FORMAT=<ID=TD,Number=.,Type=Integer,Description="Tumor allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=ND,Number=.,Type=Integer,Description="Normal allelic depths for the ref and alt alleles in the order listed">
+##INFO=<ID=TR,Number=1,Type=Integer,Description="Approximate tumor read depth; some reads may have been filtered">
+##INFO=<ID=NR,Number=1,Type=Integer,Description="Approximate normal read depth; some reads may have been filtered">
