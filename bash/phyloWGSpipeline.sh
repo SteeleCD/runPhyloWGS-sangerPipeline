@@ -11,7 +11,8 @@ sample=$1
 /software/R-3.3.2/bin/Rscript --vanilla ../R/sangerToMutectPhylo.R "$sample"a $bulkVcf $vcfDir
 
 # add vcf headers
-cat ../misc/vcfHeads.txt $vcfDir/"$sample"a.vcf > $vcfDir/"$sample"a.vcf
+cat ../misc/vcfHeads.txt $vcfDir/"$sample"a.vcf > $vcfDir/"$sample"a.tmp
+mv $vcfDir/"$sample"a.tmp $vcfDir/"$sample"a.vcf
 
 # get purity
 contam=$(grep $sample $purityFile | awk -F "," '{print $2}')
