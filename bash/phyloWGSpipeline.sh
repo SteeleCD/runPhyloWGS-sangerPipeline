@@ -23,7 +23,7 @@ contam=$(echo "1 - $contam"|bc)
 python $phyloDir/parser/parse_cnvs.py -f battenberg -c $contam $bbDir/$sample/tmpBattenberg/"$sample"a_subclones.txt
 
 # generate input params etc
-python $phyloDir/parser/create_phylowgs_inputs.py --cnvs sample1=$outDir/$sample/cnvs.txt --vcf-type sample1=mutect_tcga sample1=$vcfDir/"$sample"a
+python $phyloDir/parser/create_phylowgs_inputs.py --cnvs sample1=$outDir/$sample/cnvs.txt --vcf-type sample1=mutect_tcga sample1=$vcfDir/"$sample"a.vcf
 
 # run phyloWGS
 bsub -q long -R"select[mem>45000] rusage[mem=45000]" -M45000 -J "phylo-$sample" -o $lustreDir/logs/out/phylo-$sample.%J.out -e $lustreDir/logs/error/phylo-$sample.%J.out "cd $outDir/$sample && python $phyloDir/evolve.py --params $outDir/$sample/params.json $outDir/$sample/ssm_data.txt $outDir/$sample/cnv_data.txt"
